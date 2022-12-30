@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FirstScreen extends StatelessWidget{
+class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Material(
@@ -8,8 +8,7 @@ class FirstScreen extends StatelessWidget{
         child: Center(
             child: Text("Sample App",
                 textDirection: TextDirection.ltr,
-                style: TextStyle(
-                    fontSize: 30.0, fontStyle: FontStyle.italic))));
+                style:
+                    TextStyle(fontSize: 30.0, fontStyle: FontStyle.italic))));
   }
-  
 }

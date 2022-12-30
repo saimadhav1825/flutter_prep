@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterpreparation/samplescreenui/first_screen.dart';
+import 'package:flutterpreparation/samplescreenui/list_view_screen.dart';
 
 void main() {
   runApp(SampleApp());
@@ -17,6 +17,6 @@ class SampleApp extends StatelessWidget {
                       TextStyle(fontStyle: FontStyle.italic, fontSize: 20.0)),
               backgroundColor: Colors.black12,
             ),
-            body: FirstScreen()));
+            body: ListViewScreen()));
   }
 }
