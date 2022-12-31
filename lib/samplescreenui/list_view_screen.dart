@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ListViewScreen extends StatelessWidget {
@@ -33,7 +32,6 @@ Widget getListView() {
   return listView;
 }
 
-
 List<String> getListElements() {
   var items = List<String>.generate(1000, (counter) => "Item $counter");
   return items;
@@ -41,17 +39,28 @@ List<String> getListElements() {
 
 Widget dynamicListView() {
   var listItems = getListElements();
-  var listView = ListView.builder(
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: const Icon(Icons.save_rounded),
-          title: Text(listItems[index]),
-          onTap: () {
-            debugPrint('${listItems[index]} was tapped');
-          },
-        );
-      }
-  );
+  var listView = ListView.builder(itemBuilder: (context, index) {
+    return ListTile(
+      leading: const Icon(Icons.save_rounded),
+      title: Text(listItems[index]),
+      onTap: () {
+        showSnackBar(context, listItems[index]);
+      },
+    );
+  });
 
   return listView;
+}
+
+void showSnackBar(BuildContext context, String item) {
+  var snackBar = SnackBar(
+    content: Text("You just tapped $item"),
+    action: SnackBarAction(
+        label: "UNDO",
+        onPressed: () {
+          debugPrint('Performing dummy UNDO operation');
+        }),
+  );
+
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
