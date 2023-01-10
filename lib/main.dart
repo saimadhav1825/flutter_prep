@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutterpreparation/samplescreenui/login_screen.dart';
+import 'package:flutterpreparation/samplescreenui/with_tabbar.dart';
 
 void main() {
-  runApp(SampleApp());
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+        brightness: Brightness.dark,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: WithTabBar (),
+    );
+  }
 }
 
 class SampleApp extends StatelessWidget {
@@ -27,5 +47,3 @@ class SampleApp extends StatelessWidget {
             )));
   }
 }
-
-

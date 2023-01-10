@@ -1,0 +1,12 @@
+Room Database Equivalent for Flutter
+
+You can save, query and, delete your Objects in a simple and a direct way with Floor database!
+
+dependencies:
+   flutter:
+     sdk: flutter
+   floor: ^1.4.1
+
+ dev_dependencies:
+  floor_generator: ^1.4.1
+  build_runner: ^2.1.2
