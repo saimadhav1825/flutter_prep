@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutterpreparation/sampleLearn/sample_statelesswidget.dart';
 import 'package:flutterpreparation/samplescreenui/with_tabbar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -13,23 +16,14 @@ void main() {
           centerTitle: true,
           backgroundColor: Colors.grey,
         ),
-        body: Container(
-          child: Center(
-            child: Text("Flutter",
-                textDirection: TextDirection.ltr,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w300,
-                    fontSize: 20,
-                    color: Colors.red[200],
-                    fontFamily: "Raleway")),
-          ),
-        ),
+        body: SampleStateLessWidget(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+           Fluttertoast.showToast(msg: "This Is Flutter",backgroundColor: Colors.green);
+          },
+          tooltip: "Add Some Data",
           backgroundColor: Colors.white,
-          child: Icon(
+          child: const Icon(
             Icons.add,
             color: Colors.black,
           ),
