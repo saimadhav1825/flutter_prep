@@ -4,10 +4,12 @@ import 'package:flutterpreparation/samplescreenui/with_tabbar.dart';
 
 void main() {
   runApp(MaterialApp(
-      title: "Sample App",
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.blue, brightness: Brightness.light),
-      home: BottomNavigationView() /* Scaffold(
+    title: "Sample App",
+    initialRoute: '/',
+    routes: {'/': (context) => const BottomNavigationView()},
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(primaryColor: Colors.blue, brightness: Brightness.light),
+    /* Scaffold(
         appBar: AppBar(
           title: Text("Main Page"),
           titleTextStyle: TextStyle(fontStyle: FontStyle.italic),
@@ -27,8 +29,9 @@ void main() {
           ),
         ),
         backgroundColor: Colors.blueGrey,
-      ))*/));
-  }
+      ))*/
+  ));
+}
 
 class MyApp extends StatefulWidget {
   @override
