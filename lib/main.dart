@@ -1,15 +1,13 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutterpreparation/sampleLearn/sample_statelesswidget.dart';
+import 'package:flutterpreparation/sampleLearn/main_screen.dart';
 import 'package:flutterpreparation/samplescreenui/with_tabbar.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MaterialApp(
       title: "Sample App",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.blue, brightness: Brightness.dark),
-      home: Scaffold(
+      theme: ThemeData(primaryColor: Colors.blue, brightness: Brightness.light),
+      home: BottomNavigationView() /* Scaffold(
         appBar: AppBar(
           title: Text("Main Page"),
           titleTextStyle: TextStyle(fontStyle: FontStyle.italic),
@@ -29,8 +27,8 @@ void main() {
           ),
         ),
         backgroundColor: Colors.blueGrey,
-      )));
-}
+      ))*/));
+  }
 
 class MyApp extends StatefulWidget {
   @override

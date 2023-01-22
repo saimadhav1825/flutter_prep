@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 setState(() => count++);
                 Fluttertoast.showToast(msg: "Click count $count");
               },
-              child: Text("Login"))
+              child: Text("Login")),Image.asset("images/download.png")
         ],
       ),
     );
