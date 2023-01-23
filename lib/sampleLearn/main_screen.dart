@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterpreparation/sampleLearn/home_screen_tab_view.dart';
 import 'package:flutterpreparation/sampleLearn/profile_screen.dart';
 import 'package:flutterpreparation/sampleLearn/setting_screen.dart';
-
+import 'cart_screen.dart';
 import 'chat_screen.dart';
 
 class BottomNavigationView extends StatefulWidget {
@@ -16,7 +16,7 @@ class _BottomNavigationState extends State<BottomNavigationView> {
   int _currentPosition = 0;
   var list = const [
     Center(child: HomeScreenTabView()),
-    Center(child: Text("Cart")),
+    Center(child: CartScreenView()),
     Center(child: ChatScreenView()),
     Center(child: ProfileScreenView()),
     Center(child: SettingScreenView())
