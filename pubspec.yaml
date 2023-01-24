@@ -46,6 +46,8 @@ dependencies:
   flutter_launcher_icons: ^0.11.0
   permission_handler: ^10.2.0
   intl: ^0.17.0
+  flutter_svg: ^1.1.6
+  url_launcher: ^6.1.8
 
 
 flutter_icons:
@@ -82,6 +84,7 @@ flutter:
   assets:
     - images/download.png
     - assets/flutter_logo.png
+    - assets/video_svgrepo_com.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

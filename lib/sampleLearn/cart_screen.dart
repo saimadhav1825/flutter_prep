@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CartScreenView extends StatefulWidget {
   const CartScreenView({super.key});
@@ -12,15 +14,14 @@ class CartScreenView extends StatefulWidget {
 }
 
 class _CartScreenViewState extends State<CartScreenView> {
+  final ValueNotifier<int> _valueNotifier = ValueNotifier(0);
+  final Uri _url = Uri.parse('https://flutter.dev');
   TextEditingController dateInput = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Cart"),
-        backgroundColor: Colors.amber,
-      ),
+      appBar: AppBar(title: const Text("Cart"), backgroundColor: Colors.amber),
       body: Column(
         children: <Widget>[
           Center(
@@ -31,8 +32,26 @@ class _CartScreenViewState extends State<CartScreenView> {
               },
             ),
           ),
-          Center(child: datePicker())
+          Center(child: datePicker()),
+          SvgPicture.asset(
+            "assets/video_svgrepo_com.svg",
+            width: 100,
+            height: 100,
+          ),
+          ElevatedButton(onPressed: _launchUrl, child: const Text("Open Url")),
+          ValueListenableBuilder(
+            valueListenable: _valueNotifier,
+            builder: (context, value, child) => Text(
+              "$value",
+              style: const TextStyle(fontSize: 20),
+            ),
+          )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(child: const Icon(Icons.add),
+        onPressed: () {
+          _valueNotifier.value += 1;
+        },
       ),
     );
   }
@@ -74,5 +93,12 @@ class _CartScreenViewState extends State<CartScreenView> {
         } else {}
       },
     );
+  }
+
+  //In Other App
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 }
