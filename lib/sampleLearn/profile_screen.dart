@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../mvcpattern/controller/news_controller.dart';
+
 class ProfileScreenView extends StatefulWidget {
   const ProfileScreenView({super.key});
 
@@ -10,6 +12,14 @@ class ProfileScreenView extends StatefulWidget {
 }
 
 class _ProfileScreenViewState extends State<ProfileScreenView> {
+  final NewsController _newsController = NewsController();
+
+  @override
+  void initState() {
+    _newsController.getTodayNewsAsStream();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +36,19 @@ class _ProfileScreenViewState extends State<ProfileScreenView> {
                   ])
         ],
       ),
+      body: _newsController.newsModelList.length > 0
+          ? ListView.builder(
+              itemCount: _newsController.newsModelList.length,
+              itemBuilder: (con, index) {
+                return Card(
+                  child: ListTile(
+                    title: Image.network(
+                        _newsController.newsModelList[index].urlToImage),
+                    subtitle: Text(_newsController.newsModelList[index].title),
+                  ),
+                );
+              })
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }
